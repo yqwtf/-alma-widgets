@@ -1,0 +1,4 @@
+steps:
+  - label: ":bash: Plugin"
+    plugins:
+      docke
