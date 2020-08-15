@@ -1,4 +1,6 @@
 steps:
   - label: ":bash: Plugin"
     plugins:
-      docke
+      docker-compose#v4.9.0:
+        run: plugin
+  - label: ":r
