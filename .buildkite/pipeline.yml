@@ -3,4 +3,7 @@ steps:
     plugins:
       docker-compose#v4.9.0:
         run: plugin
-  - label: ":r
+  - label: ":ruby: Ruby"
+    plugins:
+      docker-compose#v4.9.0:
+      
