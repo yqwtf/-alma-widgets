@@ -9,4 +9,6 @@ steps:
         run: ruby
   - label: "✨ Lint"
     plugins:
-      plugin-lint
+      plugin-linter#v3.0.0:
+        id: junit-annotate
+  - label: 
