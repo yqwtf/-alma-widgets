@@ -1,0 +1,52 @@
+
+#!/bin/bash
+
+set -euo pipefail
+
+if [[ -z "${BUILDKITE_PLUGIN_JUNIT_ANNOTATE_ARTIFACTS:-}" ]]; then
+  echo "🚨 Missing artifacts configuration for the plugin"
+  exit 1
+fi
+
+PLUGIN_DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)/.."
+MAX_SIZE=1024 # in KB
+RUBY_IMAGE="${BUILDKITE_PLUGIN_JUNIT_ANNOTATE_RUBY_IMAGE:-ruby:3.1-alpine@sha256:a39e26d0598837f08c75a42c8b0886d9ed5cc862c4b535662922ee1d05272fca}"
+
+artifacts_dir="$(pwd)/$(mktemp -d "junit-annotate-plugin-artifacts-tmp.XXXXXXXXXX")"
+annotation_dir="$(pwd)/$(mktemp -d "junit-annotate-plugin-annotation-tmp.XXXXXXXXXX")"
+annotation_path="${annotation_dir}/annotation.md"
+annotation_style="info"
+fail_build=0
+has_errors=0
+create_annotation=0
+
+# shellcheck disable=2317  #  this is a signal function
+function cleanup {
+  rm -rf "${artifacts_dir}"
+  rm -rf "${annotation_dir}"
+}
+
+function check_size {
+  local size_in_kb
+  size_in_kb=$(du -k "${annotation_path}" | cut -f 1)
+  [ "${size_in_kb}" -lt "${MAX_SIZE}" ]
+}
+
+trap cleanup EXIT
+
+echo "--- :junit: Download the junits"
+if ! buildkite-agent artifact download "${BUILDKITE_PLUGIN_JUNIT_ANNOTATE_ARTIFACTS}" "$artifacts_dir"; then
+  echo "--- :boom: Could not download artifacts"
+  exit "${BUILDKITE_PLUGIN_JUNIT_ANNOTATE_FAILED_DOWNLOAD_EXIT_CODE:-2}"
+fi
+
+echo "--- :junit: Processing the junits"
+
+set +e
+docker \
+  --log-level "error" \
+  run \
+    --rm \
+    --volume "$artifacts_dir:/junits" \
+    --volume "$PLUGIN_DIR/ruby:/src" \
+    --env "BUILDKITE_PLUGIN_JUNIT_ANNOTATE_JOB_UUID_FILE_PATTERN=${BUILDKITE_PLUGIN_JUNIT_ANNOTATE_JOB_UUID_FILE_PATTERN:-}" \
