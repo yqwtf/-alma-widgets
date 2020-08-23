@@ -60,3 +60,55 @@ There are two options for this:
 Default: `false`
 
 If this setting is true and any errors are found in the JUnit XML files during parsing, the annotation step will exit with a non-zero value, which should cause the build to fail.
+
+### `failed-download-exit-code` (optional, integer)
+
+Default: `2`
+
+Exit code of the plugin if the call to `buildkite-agent artifact download` fails.
+
+### `min-tests` (optional, integer)
+
+Minimum amount of run tests that need to be analyzed or a failure will be reported. It is useful to ensure that tests are actually run and report files to analyze do contain information.
+
+### `report-slowest` (optional)
+
+Default: `0`
+
+Include the specified number of slowest tests in the annotation. The annotation will always be shown.
+
+### `ruby-image` (optional)
+
+The docker image to use for running the analysis code. Must be a valid image reference that can run the corresponding ruby code and the agent running the step must be able to pull it if not already present.
+
+Default: `ruby:3.1-alpine@sha256:a39e26d0598837f08c75a42c8b0886d9ed5cc862c4b535662922ee1d05272fca`
+
+## Developing
+
+To test the plugin hooks (in Bash) and the junit parser (in Ruby):
+
+```bash
+docker-compose run --rm plugin &&
+docker-compose run --rm ruby
+```
+
+To test the Ruby parser locally:
+
+```bash
+cd ruby
+rake
+```
+
+To test your plugin in your builds prior to opening a pull request, you can refer to your fork and SHA from a branch in your `pipeline.yml`.
+
+```
+steps:
+  - label: Annotate
+    plugins:
+      - YourGithubHandle/junit-annotate#v2.4.1:
+          ...
+```
+
+## License
+
+MIT (see [LICENSE](LICENSE))
