@@ -102,3 +102,16 @@ elif ! check_size; then
 
   if ! check_size; then
     echo "The failures are too large to create a build annotation. Please inspect the failed JUnit artifacts manually."
+    create_annotation=0
+  else
+    echo "The failures are too large to create complete annotation, using a simplified annotation"
+  fi
+fi
+
+if [ $create_annotation -ne 0 ]; then
+  echo "--- :buildkite: Creating annotation"
+  # shellcheck disable=SC2002
+  cat "$annotation_path" | buildkite-agent annotate --context "${BUILDKITE_PLUGIN_JUNIT_ANNOTATE_CONTEXT:-junit}" --style "$annotation_style"
+fi
+
+exit $fail_build
