@@ -4,4 +4,7 @@ author: https://github.com/buildkite
 requirements:
   - docker
 configuration:
-  p
+  properties:
+    artifacts:
+      type: string
+    
