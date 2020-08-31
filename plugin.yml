@@ -10,3 +10,7 @@ configuration:
     always-annotate:
       type: boolean
     context:
+      type: string
+    failure-format:
+      type: string
+      e
