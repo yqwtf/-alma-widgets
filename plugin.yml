@@ -13,4 +13,7 @@ configuration:
       type: string
     failure-format:
       type: string
-      e
+      enum:
+        - classname
+        - file
+    fail-buil
