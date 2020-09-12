@@ -22,4 +22,7 @@ configuration:
       type: integer
     job-uuid-file-pattern:
       type: string
-    min
+    min-tests:
+      type: integer
+    report-slowest:
+      type: int
