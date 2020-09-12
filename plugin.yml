@@ -16,4 +16,7 @@ configuration:
       enum:
         - classname
         - file
-    fail-buil
+    fail-build-on-error:
+      type: boolean
+    failed-download-exit-code:
+   
