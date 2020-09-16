@@ -25,4 +25,8 @@ configuration:
     min-tests:
       type: integer
     report-slowest:
-      type: int
+      type: integer
+    ruby-image:
+      type: string
+  required:
+    - 
