@@ -29,4 +29,5 @@ configuration:
     ruby-image:
       type: string
   required:
-    - 
+    - artifacts
+  additionalProperties: false
