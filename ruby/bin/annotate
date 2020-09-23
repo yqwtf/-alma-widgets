@@ -1,0 +1,50 @@
+
+#!/usr/bin/env ruby
+
+require 'rexml/document'
+require 'rexml/element'
+require 'cgi/util'
+
+# Reads a list of junit files and returns a nice Buildkite build annotation on
+# STDOUT that summarizes any failures.
+
+junits_dir = ARGV[0]
+abort("Usage: annotate <junits-dir>") unless junits_dir
+abort("#{junits_dir} does not exist") unless Dir.exist?(junits_dir)
+
+job_pattern = ENV['BUILDKITE_PLUGIN_JUNIT_ANNOTATE_JOB_UUID_FILE_PATTERN']
+job_pattern = '-(.*).xml' if !job_pattern || job_pattern.empty?
+
+failure_format = ENV['BUILDKITE_PLUGIN_JUNIT_ANNOTATE_FAILURE_FORMAT']
+failure_format = 'classname' if !failure_format || failure_format.empty?
+
+report_slowest = ENV['BUILDKITE_PLUGIN_JUNIT_ANNOTATE_REPORT_SLOWEST'].to_i
+
+class Failure < Struct.new(:name, :unit_name, :body, :job, :type, :message)
+end
+
+class Timing < Struct.new(:name, :unit_name, :time)
+end
+
+junit_report_files = Dir.glob(File.join(junits_dir, "**", "*"), File::FNM_DOTMATCH)
+testcases = 0
+failures = []
+timings = []
+
+def text_content(element)
+  # Handle mulptiple CDATA/text children elements
+  text = element.texts().map(&:value).join.strip
+  if text.empty?
+    nil
+  else
+    text
+  end
+end
+
+def message_content(element)
+  # Handle empty attributes
+  message = element.attributes['message'];
+  if message.nil? || message.empty?
+    nil
+  else
+    message.to_s
