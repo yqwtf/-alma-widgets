@@ -106,3 +106,13 @@ if report_slowest > 0
   puts "<summary>#{report_slowest} slowest tests</summary>\n\n"
   puts "<table>"
   puts "<thead><tr><th>Unit</th><th>Test</th><th>Time</th></tr></thead>"
+  puts "<tbody>"
+  timings.sort_by(&:time).reverse.take(report_slowest).each do |timing|
+    puts "<tr><td>#{timing.unit_name}</td><td>#{timing.name}</td><td>#{timing.time}</td></tr>"
+  end
+  puts "</tbody>"
+  puts "</table>"
+  puts "</details>"
+end
+
+exit 64 if failures.any? # special exit code to signal test failures
