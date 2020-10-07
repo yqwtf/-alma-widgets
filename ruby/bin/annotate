@@ -48,3 +48,61 @@ def message_content(element)
     nil
   else
     message.to_s
+  end
+end
+
+junit_report_files.sort.each do |file|
+  next if File.directory?(file)
+
+  STDERR.puts "Parsing #{file.sub(junits_dir, '')}"
+  job = File.basename(file)[/#{job_pattern}/, 1]
+  xml = File.read(file)
+  doc = REXML::Document.new(xml)
+
+  REXML::XPath.each(doc, '//testsuite/testcase') do |testcase|
+    testcases += 1
+    name = testcase.attributes['name'].to_s
+    unit_name = testcase.attributes[failure_format].to_s
+    time = testcase.attributes['time'].to_f
+    timings << Timing.new(name, unit_name, time)
+    testcase.elements.each("failure") do |failure|
+      failures << Failure.new(name, unit_name, text_content(failure), job, :failure, message_content(failure))
+    end
+    testcase.elements.each("error") do |error|
+      failures << Failure.new(name, unit_name, text_content(error), job, :error, message_content(error))
+    end
+  end
+end
+
+STDERR.puts "--- ✍️ Preparing annotation"
+
+failures_count = failures.select {|f| f.type == :failure }.length
+errors_count = failures.select {|f| f.type == :error }.length
+
+puts "Failures: #{failures_count}"
+puts "Errors: #{errors_count}"
+puts "Total tests: #{testcases}"
+
+failures.each do |failure|
+  puts ""
+  puts "<details>"
+  puts "<summary><code>#{failure.name} in #{failure.unit_name}</code></summary>\n\n"
+  if failure.message
+    puts "<p>#{failure.message.chomp.strip}</p>\n\n"
+  end
+  if failure.body
+    puts "<pre><code>#{CGI.escapeHTML(failure.body.chomp.strip)}</code></pre>\n\n"
+  end
+  if failure.job
+    puts "in <a href=\"##{failure.job}\">Job ##{failure.job}</a>"
+  end
+  puts "</details>"
+end
+
+if report_slowest > 0
+  STDERR.puts "Reporting slowest tests ⏱"
+  puts ""
+  puts "<details>"
+  puts "<summary>#{report_slowest} slowest tests</summary>\n\n"
+  puts "<table>"
+  puts "<thead><tr><th>Unit</th><th>Test</th><th>Time</th></tr></thead>"
