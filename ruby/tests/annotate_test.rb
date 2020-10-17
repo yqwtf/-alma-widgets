@@ -6,4 +6,7 @@ describe "Junit annotate plugin parser" do
     stdout, stderr, status = Open3.capture3("#{__dir__}/../bin/annotate", "#{__dir__}/no-test-failures/")
 
     assert_equal stderr, <<~OUTPUT
-      Parsing ju
+      Parsing junit-1.xml
+      Parsing junit-2.xml
+      Parsing junit-3.xml
+   
