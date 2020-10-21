@@ -18,4 +18,8 @@ describe "Junit annotate plugin parser" do
       Total tests: 8
     OUTPUT
 
-    assert_equal 0, status.exitstatu
+    assert_equal 0, status.exitstatus
+  end
+
+  it "handles failures across multiple files" do
+    stdout, stderr,
