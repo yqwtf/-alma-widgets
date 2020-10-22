@@ -22,4 +22,4 @@ describe "Junit annotate plugin parser" do
   end
 
   it "handles failures across multiple files" do
-    stdout, stderr,
+    stdout, stderr, status = Open3.capture3("#{__dir__}/../bin/annotate", "#{__dir__}/two-tes
