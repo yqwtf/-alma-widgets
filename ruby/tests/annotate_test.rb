@@ -29,4 +29,7 @@ describe "Junit annotate plugin parser" do
       Parsing junit-2.xml
       Parsing junit-3.xml
       --- ✍️ Preparing annotation
-    O
+    OUTPUT
+
+    assert_equal stdout, <<~OUTPUT
+      Failur
