@@ -55,4 +55,5 @@ describe "Junit annotate plugin parser" do
       in <a href="#1">Job #1</a>
       </details>
       
-      <d
+      <details>
+      <summary><code>Account#m
