@@ -56,4 +56,4 @@ describe "Junit annotate plugin parser" do
       </details>
       
       <details>
-      <summary><code>Account#m
+      <summary><code>Account#maximum_jobs_added_by_pipeline_changer returns 700 if the 
