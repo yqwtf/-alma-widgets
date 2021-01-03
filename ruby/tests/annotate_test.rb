@@ -74,3 +74,5 @@ describe "Junit annotate plugin parser" do
       in <a href="#2">Job #2</a>
       </details>
 
+      <details>
+      <summary><code>Account#maximum_jobs
