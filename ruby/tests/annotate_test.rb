@@ -93,4 +93,5 @@ describe "Junit annotate plugin parser" do
       in <a href="#3">Job #3</a>
       </details>
 
-      <d
+      <details>
+      <summary><code>Account#maximum_jobs_added_by_pipeline_cha
