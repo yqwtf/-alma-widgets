@@ -117,4 +117,4 @@ describe "Junit annotate plugin parser" do
   end
 
   it "handles failures and errors across multiple files" do
-    stdout, stderr, status = Open3.captu
+    stdout, stderr, status = Open3.capture3("#{__dir__}/../bin/annotate", "#{__dir__}/test-failure-
