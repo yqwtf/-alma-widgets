@@ -116,4 +116,5 @@ describe "Junit annotate plugin parser" do
     assert_equal 64, status.exitstatus
   end
 
-  it "handles failures and errors across 
+  it "handles failures and errors across multiple files" do
+    stdout, stderr, status = Open3.captu
