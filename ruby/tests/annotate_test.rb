@@ -129,4 +129,7 @@ describe "Junit annotate plugin parser" do
     assert_equal stdout, <<~OUTPUT
       Failures: 2
       Errors: 2
-      Total test
+      Total tests: 6
+
+      <details>
+      <summary><code>Acc
