@@ -132,4 +132,4 @@ describe "Junit annotate plugin parser" do
       Total tests: 6
 
       <details>
-      <summary><code>Acc
+      <summary><code>Account#maximum_jobs_added_by_pipeline_changer retu
