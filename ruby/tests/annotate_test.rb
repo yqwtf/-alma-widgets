@@ -151,4 +151,6 @@ describe "Junit annotate plugin parser" do
       </details>
       
       <details>
-      <summary><code>Account#maximum_jobs_added_by_pipeline_changer returns 700 if the account is XYZ in spec.models.account_spec</code></
+      <summary><code>Account#maximum_jobs_added_by_pipeline_changer returns 700 if the account is XYZ in spec.models.account_spec</code></summary>
+      
+      <p>expected: 700 got: 500 (compared usin
