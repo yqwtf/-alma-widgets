@@ -191,4 +191,6 @@ describe "Junit annotate plugin parser" do
       <details>
       <summary><code>Account#maximum_jobs_added_by_pipeline_changer returns 250 by default in spec.models.account_spec</code></summary>
       
-      <p>expected: 250 got: 500 (compared 
+      <p>expected: 250 got: 500 (compared using eql?)</p>
+
+      <pre><code>Failure/Error:
