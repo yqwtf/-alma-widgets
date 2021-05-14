@@ -211,4 +211,5 @@ describe "Junit annotate plugin parser" do
     assert_equal 64, status.exitstatus
   end
 
-  it "accepts custom regex filename p
+  it "accepts custom regex filename patterns for job id" do
+    stdout, stderr, status = Open3.c
