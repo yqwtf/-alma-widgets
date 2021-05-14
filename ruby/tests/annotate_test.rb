@@ -208,4 +208,7 @@ describe "Junit annotate plugin parser" do
       </details>
     OUTPUT
 
-    assert_equal 64, status.exits
+    assert_equal 64, status.exitstatus
+  end
+
+  it "accepts custom regex filename p
