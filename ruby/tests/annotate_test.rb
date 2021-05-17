@@ -212,4 +212,4 @@ describe "Junit annotate plugin parser" do
   end
 
   it "accepts custom regex filename patterns for job id" do
-    stdout, stderr, status = Open3.c
+    stdout, stderr, status = Open3.capture3("env", "BUILDKITE_PLUGIN_JUNIT_ANNOTATE_JOB_UUID_FIL
