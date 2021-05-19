@@ -215,4 +215,8 @@ describe "Junit annotate plugin parser" do
     stdout, stderr, status = Open3.capture3("env", "BUILDKITE_PLUGIN_JUNIT_ANNOTATE_JOB_UUID_FILE_PATTERN=junit-(.*)-custom-pattern.xml", "#{__dir__}/../bin/annotate", "#{__dir__}/custom-job-uuid-pattern/")
 
     assert_equal stderr, <<~OUTPUT
-      Parsing junit-123-456-custom-pattern.xm
+      Parsing junit-123-456-custom-pattern.xml
+      --- ✍️ Preparing annotation
+    OUTPUT
+
+    a
