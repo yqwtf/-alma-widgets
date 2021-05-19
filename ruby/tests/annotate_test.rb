@@ -214,4 +214,5 @@ describe "Junit annotate plugin parser" do
   it "accepts custom regex filename patterns for job id" do
     stdout, stderr, status = Open3.capture3("env", "BUILDKITE_PLUGIN_JUNIT_ANNOTATE_JOB_UUID_FILE_PATTERN=junit-(.*)-custom-pattern.xml", "#{__dir__}/../bin/annotate", "#{__dir__}/custom-job-uuid-pattern/")
 
-    assert_eq
+    assert_equal stderr, <<~OUTPUT
+      Parsing junit-123-456-custom-pattern.xm
