@@ -225,4 +225,4 @@ describe "Junit annotate plugin parser" do
       Total tests: 2
       
       <details>
-      <sum
+      <summary><code>Account#maximum_jobs_added_by_pipeline_changer retur
