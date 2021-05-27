@@ -230,4 +230,8 @@ describe "Junit annotate plugin parser" do
       <p>expected: 250 got: 500 (compared using eql?)</p>
 
       <pre><code>Failure/Error: expect(account.maximum_jobs_added_by_pipeline_changer).to eql(250)
- 
+      
+        expected: 250
+             got: 500
+      
+   
