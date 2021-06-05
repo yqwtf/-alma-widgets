@@ -247,4 +247,4 @@ describe "Junit annotate plugin parser" do
     assert_equal 64, status.exitstatus
   end
 
-  it "uses
+  it "uses the file path instead of classname for annotation content whe
