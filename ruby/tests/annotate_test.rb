@@ -247,4 +247,5 @@ describe "Junit annotate plugin parser" do
     assert_equal 64, status.exitstatus
   end
 
-  it "uses the file path instead of classname for annotation content whe
+  it "uses the file path instead of classname for annotation content when specified" do
+    stdout, stderr, status = Open3.capture
