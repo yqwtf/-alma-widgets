@@ -248,4 +248,6 @@ describe "Junit annotate plugin parser" do
   end
 
   it "uses the file path instead of classname for annotation content when specified" do
-    stdout, stderr, status = Open3.capture3("env", "BUILDKITE_PLUGIN_JUNIT_ANNOTATE_FAILURE_FORMAT=file", "#{__dir__}/../bin/annotate", "#{__dir_
+    stdout, stderr, status = Open3.capture3("env", "BUILDKITE_PLUGIN_JUNIT_ANNOTATE_FAILURE_FORMAT=file", "#{__dir__}/../bin/annotate", "#{__dir__}/test-failure-and-error/")
+
+    assert_equal stderr, <<
