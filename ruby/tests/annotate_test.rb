@@ -261,3 +261,6 @@ describe "Junit annotate plugin parser" do
       Failures: 2
       Errors: 2
       Total tests: 6
+
+      <details>
+      <summary><code>Account#maximum_jobs_added_
