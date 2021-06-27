@@ -279,4 +279,7 @@ describe "Junit annotate plugin parser" do
       ./spec/support/log.rb:66:in `block (2 levels) in &lt;top (required)&gt;&#39;</code></pre>
 
       in <a href="#1">Job #1</a>
-      </detai
+      </details>
+
+      <details>
+      <summary><code>Account#maximum_jobs_
