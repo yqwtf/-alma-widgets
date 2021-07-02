@@ -284,4 +284,6 @@ describe "Junit annotate plugin parser" do
       <details>
       <summary><code>Account#maximum_jobs_added_by_pipeline_changer returns 700 if the account is XYZ in ./spec/models/account_spec.rb</code></summary>
 
-      <p>ex
+      <p>expected: 700 got: 500 (compared using eql?)</p>
+
+      <pre><
