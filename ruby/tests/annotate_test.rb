@@ -286,4 +286,4 @@ describe "Junit annotate plugin parser" do
 
       <p>expected: 700 got: 500 (compared using eql?)</p>
 
-      <pre><
+      <pre><code>Failure/Error: expect(account.maximum_jobs_added_b
