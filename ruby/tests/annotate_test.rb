@@ -330,4 +330,4 @@ describe "Junit annotate plugin parser" do
              got: 500
 
         (compared using eql?)
-      ./spec/models/
+      ./spec/models/account_spec.rb:78:in `block (3 levels) in &lt;top (required)&g
