@@ -337,4 +337,9 @@ describe "Junit annotate plugin parser" do
 
       in <a href="#3">Job #3</a>
       </details>
-    
+    OUTPUT
+
+    assert_equal 64, status.exitstatus
+  end
+
+  it "h
