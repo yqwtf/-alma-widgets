@@ -342,4 +342,5 @@ describe "Junit annotate plugin parser" do
     assert_equal 64, status.exitstatus
   end
 
-  it "h
+  it "handles failures across multiple files in sub dirs" do
+    stdout, std
