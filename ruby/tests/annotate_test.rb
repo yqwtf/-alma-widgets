@@ -343,4 +343,6 @@ describe "Junit annotate plugin parser" do
   end
 
   it "handles failures across multiple files in sub dirs" do
-    stdout, stderr, status = Open3.capture3("#{__dir__}/../bin/annotate", "
+    stdout, stderr, status = Open3.capture3("#{__dir__}/../bin/annotate", "#{__dir__}/tests-in-sub-dirs/")
+
+    assert_equal std
