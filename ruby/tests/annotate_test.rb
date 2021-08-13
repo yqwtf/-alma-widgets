@@ -347,4 +347,5 @@ describe "Junit annotate plugin parser" do
 
     assert_equal stderr, <<~OUTPUT
       Parsing sub-dir/junit-1.xml
-      Parsing s
+      Parsing sub-dir/junit-2.xml
+      Parsing sub-dir/junit-3.xml
