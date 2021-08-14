@@ -349,3 +349,6 @@ describe "Junit annotate plugin parser" do
       Parsing sub-dir/junit-1.xml
       Parsing sub-dir/junit-2.xml
       Parsing sub-dir/junit-3.xml
+      --- ✍️ Preparing annotation
+    OUTPUT
+
