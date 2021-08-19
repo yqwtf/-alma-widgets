@@ -358,4 +358,4 @@ describe "Junit annotate plugin parser" do
       Total tests: 6
       
       <details>
-      <summary><code>Account#maximum_jobs_added_
+      <summary><code>Account#maximum_jobs_added_by_pipeline_changer returns 250 by default in spec.models.accoun
