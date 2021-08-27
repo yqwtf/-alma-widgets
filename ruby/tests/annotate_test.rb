@@ -367,4 +367,5 @@ describe "Junit annotate plugin parser" do
         expected: 250
              got: 500
       
-        (compared using 
+        (compared using eql?)
+      ./spec/models/account_spec.rb:78:in `block (3 
