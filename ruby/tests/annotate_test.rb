@@ -388,4 +388,4 @@ describe "Junit annotate plugin parser" do
       
         (compared using eql?)
       ./spec/models/account_spec.rb:78:in `block (3 levels) in &lt;top (required)&gt;&#39;
-      ./spec/
+      ./spec/support/database.rb:16:in `block (2 levels) i
