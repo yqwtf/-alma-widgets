@@ -434,4 +434,7 @@ describe "Junit annotate plugin parser" do
       </details>
     OUTPUT
 
-    assert_
+    assert_equal 64, status.exitstatus
+  end
+
+  it "handles empty failure bodi
