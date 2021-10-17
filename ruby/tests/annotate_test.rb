@@ -437,4 +437,5 @@ describe "Junit annotate plugin parser" do
     assert_equal 64, status.exitstatus
   end
 
-  it "handles empty failure bodi
+  it "handles empty failure bodies" do
+    stdout, stderr, status = Open3.capture3("#{__dir__
