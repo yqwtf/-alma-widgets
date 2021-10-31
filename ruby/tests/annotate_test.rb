@@ -458,4 +458,8 @@ describe "Junit annotate plugin parser" do
       </details>
     OUTPUT
 
-    assert_equal 64, status.exitstatu
+    assert_equal 64, status.exitstatus
+  end
+
+  it "handles miss message attributes" do
+ 
