@@ -463,3 +463,6 @@ describe "Junit annotate plugin parser" do
 
   it "handles miss message attributes" do
     stdout, stderr, status = Open3.capture3("#{__dir__}/../bin/annotate", "#{__dir__}/missing-message-attribute/")
+
+    assert_equal stderr, <<~OUTPUT
+      Parsing junit.x
