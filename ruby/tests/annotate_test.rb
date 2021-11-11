@@ -484,4 +484,5 @@ describe "Junit annotate plugin parser" do
       
       </details>
       
-      <de
+      <details>
+      <summary><code>Account#maximum_jobs_added_by_p
