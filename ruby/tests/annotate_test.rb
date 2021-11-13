@@ -493,4 +493,5 @@ describe "Junit annotate plugin parser" do
     assert_equal 64, status.exitstatus
   end
 
-  it "handles
+  it "handles cdata formatted XML files" do
+    stdout, stderr, stat
