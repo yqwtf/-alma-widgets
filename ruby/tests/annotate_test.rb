@@ -494,4 +494,7 @@ describe "Junit annotate plugin parser" do
   end
 
   it "handles cdata formatted XML files" do
-    stdout, stderr, status = Open3.capture3("#{__dir__}/../bin/annotate", "#{__dir__}
+    stdout, stderr, status = Open3.capture3("#{__dir__}/../bin/annotate", "#{__dir__}/failure-with-cdata/")
+
+    assert_equal stderr, <<~OUTPUT
+     
