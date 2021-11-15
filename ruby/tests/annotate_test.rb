@@ -499,4 +499,6 @@ describe "Junit annotate plugin parser" do
     assert_equal stderr, <<~OUTPUT
       Parsing junit.xml
       --- ✍️ Preparing annotation
-    
+    OUTPUT
+
+    assert_equal stdout, <<~OUTPUT
