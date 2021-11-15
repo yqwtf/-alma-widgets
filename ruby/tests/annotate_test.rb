@@ -497,4 +497,6 @@ describe "Junit annotate plugin parser" do
     stdout, stderr, status = Open3.capture3("#{__dir__}/../bin/annotate", "#{__dir__}/failure-with-cdata/")
 
     assert_equal stderr, <<~OUTPUT
-     
+      Parsing junit.xml
+      --- ✍️ Preparing annotation
+    
