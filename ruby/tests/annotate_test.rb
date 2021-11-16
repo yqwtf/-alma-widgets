@@ -502,3 +502,6 @@ describe "Junit annotate plugin parser" do
     OUTPUT
 
     assert_equal stdout, <<~OUTPUT
+      Failures: 0
+      Errors: 1
+      Total test
