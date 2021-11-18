@@ -504,4 +504,7 @@ describe "Junit annotate plugin parser" do
     assert_equal stdout, <<~OUTPUT
       Failures: 0
       Errors: 1
-      Total test
+      Total tests: 2
+
+      <details>
+      <summary><code>Account#maximum_jobs_a
