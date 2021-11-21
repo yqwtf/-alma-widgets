@@ -517,4 +517,7 @@ describe "Junit annotate plugin parser" do
       </details>
     OUTPUT
 
-    assert_equal 64, st
+    assert_equal 64, status.exitstatus
+  end
+
+  it "reports specified amount of s
