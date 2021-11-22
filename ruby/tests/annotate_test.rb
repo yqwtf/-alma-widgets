@@ -520,4 +520,5 @@ describe "Junit annotate plugin parser" do
     assert_equal 64, status.exitstatus
   end
 
-  it "reports specified amount of s
+  it "reports specified amount of slowest tests" do
+    stdout, stderr, status = Open3.capture3("env", "B
