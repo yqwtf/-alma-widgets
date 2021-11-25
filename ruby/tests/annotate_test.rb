@@ -521,4 +521,7 @@ describe "Junit annotate plugin parser" do
   end
 
   it "reports specified amount of slowest tests" do
-    stdout, stderr, status = Open3.capture3("env", "BUILDKITE_PLUGIN_JUNIT_ANNOTATE_REPORT_SLOWEST=5", "#{__dir__}/../bin/annotate", "#{__dir
+    stdout, stderr, status = Open3.capture3("env", "BUILDKITE_PLUGIN_JUNIT_ANNOTATE_REPORT_SLOWEST=5", "#{__dir__}/../bin/annotate", "#{__dir__}/no-test-failures/")
+
+    assert_equal stderr, <<~OUTPUT
+      Pa
