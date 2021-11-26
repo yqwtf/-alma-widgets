@@ -524,4 +524,6 @@ describe "Junit annotate plugin parser" do
     stdout, stderr, status = Open3.capture3("env", "BUILDKITE_PLUGIN_JUNIT_ANNOTATE_REPORT_SLOWEST=5", "#{__dir__}/../bin/annotate", "#{__dir__}/no-test-failures/")
 
     assert_equal stderr, <<~OUTPUT
-      Pa
+      Parsing junit-1.xml
+      Parsing junit-2.xml
+      P
