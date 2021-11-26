@@ -526,4 +526,6 @@ describe "Junit annotate plugin parser" do
     assert_equal stderr, <<~OUTPUT
       Parsing junit-1.xml
       Parsing junit-2.xml
-      P
+      Parsing junit-3.xml
+      --- ✍️ Preparing annotation
+      Repor
