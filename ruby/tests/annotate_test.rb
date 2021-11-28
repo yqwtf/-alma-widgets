@@ -531,4 +531,7 @@ describe "Junit annotate plugin parser" do
       Reporting slowest tests ⏱
     OUTPUT
 
-    assert_equa
+    assert_equal stdout, <<~OUTPUT
+      Failures: 0
+      Errors: 0
+      To
