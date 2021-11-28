@@ -528,4 +528,7 @@ describe "Junit annotate plugin parser" do
       Parsing junit-2.xml
       Parsing junit-3.xml
       --- ✍️ Preparing annotation
-      Repor
+      Reporting slowest tests ⏱
+    OUTPUT
+
+    assert_equa
