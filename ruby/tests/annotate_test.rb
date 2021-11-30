@@ -534,4 +534,7 @@ describe "Junit annotate plugin parser" do
     assert_equal stdout, <<~OUTPUT
       Failures: 0
       Errors: 0
-      To
+      Total tests: 8
+      
+      <details>
+      <summary>5 slow
