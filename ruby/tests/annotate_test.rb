@@ -537,4 +537,7 @@ describe "Junit annotate plugin parser" do
       Total tests: 8
       
       <details>
-      <summary>5 slow
+      <summary>5 slowest tests</summary>
+
+      <table>
+      <thead><tr><th
