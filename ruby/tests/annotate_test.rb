@@ -540,4 +540,5 @@ describe "Junit annotate plugin parser" do
       <summary>5 slowest tests</summary>
 
       <table>
-      <thead><tr><th
+      <thead><tr><th>Unit</th><th>Test</th><th>Time</th></tr></thead>
+      <tbod
