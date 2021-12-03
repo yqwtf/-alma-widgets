@@ -541,4 +541,5 @@ describe "Junit annotate plugin parser" do
 
       <table>
       <thead><tr><th>Unit</th><th>Test</th><th>Time</th></tr></thead>
-      <tbod
+      <tbody>
+      <tr><td>spec.models.account_spec</td><td>Account#maxim
