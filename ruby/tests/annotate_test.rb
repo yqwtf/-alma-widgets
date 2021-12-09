@@ -543,4 +543,5 @@ describe "Junit annotate plugin parser" do
       <thead><tr><th>Unit</th><th>Test</th><th>Time</th></tr></thead>
       <tbody>
       <tr><td>spec.models.account_spec</td><td>Account#maximum_jobs_added_by_pipeline_changer returns 250 by default</td><td>0.977127</td></tr>
-      <tr><td>spec.models.account_spec</td><td>Account#maximum_jobs_added_by_pipeline_changer returns 250 by default</td><td>0.967127</td></t
+      <tr><td>spec.models.account_spec</td><td>Account#maximum_jobs_added_by_pipeline_changer returns 250 by default</td><td>0.967127</td></tr>
+      <tr><td>spec.models.account_spec</td><td>Acc
