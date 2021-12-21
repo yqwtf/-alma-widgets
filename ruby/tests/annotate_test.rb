@@ -550,4 +550,9 @@ describe "Junit annotate plugin parser" do
       </tbody>
       </table>
       </details>
- 
+    OUTPUT
+
+    assert_equal 0, status.exitstatus
+  end
+
+  it
