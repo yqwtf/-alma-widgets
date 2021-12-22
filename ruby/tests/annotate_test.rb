@@ -555,4 +555,4 @@ describe "Junit annotate plugin parser" do
     assert_equal 0, status.exitstatus
   end
 
-  it
+  it "handles junit dir paths with hidden directori
