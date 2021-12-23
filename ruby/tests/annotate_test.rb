@@ -555,4 +555,5 @@ describe "Junit annotate plugin parser" do
     assert_equal 0, status.exitstatus
   end
 
-  it "handles junit dir paths with hidden directori
+  it "handles junit dir paths with hidden directories" do
+    stdout, stderr, status = Open3.capture3("#{__di
