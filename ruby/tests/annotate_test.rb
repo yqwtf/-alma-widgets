@@ -558,4 +558,5 @@ describe "Junit annotate plugin parser" do
   it "handles junit dir paths with hidden directories" do
     stdout, stderr, status = Open3.capture3("#{__dir__}/../bin/annotate", "#{__dir__}/.tests-in-hidden-dir/")
 
- 
+    assert_equal stderr, <<~OUTPUT
+      Parsing ju
