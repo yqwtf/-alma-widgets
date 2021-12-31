@@ -563,3 +563,6 @@ describe "Junit annotate plugin parser" do
       --- ✍️ Preparing annotation
     OUTPUT
 
+    assert_equal stdout, <<~OUTPUT
+      Failures: 0
+      Error
