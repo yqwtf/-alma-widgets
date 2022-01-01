@@ -569,4 +569,6 @@ describe "Junit annotate plugin parser" do
       Total tests: 2
     OUTPUT
 
-    assert_
+    assert_equal 0, status.exitstatus
+  end
+end
