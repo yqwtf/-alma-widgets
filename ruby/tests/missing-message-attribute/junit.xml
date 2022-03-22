@@ -10,4 +10,4 @@
   <testcase classname="spec.models.account_spec" name="Account#maximum_jobs_added_by_pipeline_changer returns 50 by default" file="./spec/models/account_spec.rb" time="0.967127">
     <error message="" type="RSpec::Expectations::ExpectationNotMetError"></error>
   </testcase>
-<
+</testsuite>
