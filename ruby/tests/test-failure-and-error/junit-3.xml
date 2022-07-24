@@ -23,4 +23,4 @@
        got: 500
 
   (compared using eql?)
-./sp
+./spec/models/account_spec.rb:78:in `block (3 le
