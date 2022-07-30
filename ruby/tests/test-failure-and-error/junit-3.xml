@@ -27,4 +27,6 @@
 ./spec/support/database.rb:16:in `block (2 levels) in &lt;top (required)&gt;&apos;
 ./spec/support/log.rb:17:in `run&apos;
 ./spec/support/log.rb:66:in `block (2 levels) in &lt;top (required)&gt;&apos;</error>
-    </test
+    </testcase>
+  </testsuite>
+</testsuites>
