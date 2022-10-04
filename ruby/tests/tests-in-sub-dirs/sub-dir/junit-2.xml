@@ -6,4 +6,5 @@
   expected: 700
        got: 500
 
-  (compared using eql
+  (compared using eql?)
+./spec/models/account_spec.rb:78:in `block (3 leve
