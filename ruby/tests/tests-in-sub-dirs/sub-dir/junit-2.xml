@@ -8,4 +8,5 @@
 
   (compared using eql?)
 ./spec/models/account_spec.rb:78:in `block (3 levels) in &lt;top (required)&gt;&apos;
-./spec/support/database.rb:1
+./spec/support/database.rb:16:in `block (2 levels) in &lt;top (required)&gt;&apos;
+./
