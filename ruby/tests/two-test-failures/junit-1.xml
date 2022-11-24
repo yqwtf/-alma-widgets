@@ -8,4 +8,4 @@
        got: 500
 
   (compared using eql?)
-./s
+./spec/models/account_spec.rb:78:in `block (3 levels) in &lt;top (
