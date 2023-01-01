@@ -13,4 +13,5 @@
 ./spec/support/log.rb:17:in `run&apos;
 ./spec/support/log.rb:66:in `block (2 levels) in &lt;top (required)&gt;&apos;</failure>
     </testcase>
-  </testsui
+  </testsuite>
+  <testsuite name="rspec" tests="2" skipped="0" f
