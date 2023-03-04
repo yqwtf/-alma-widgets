@@ -281,3 +281,71 @@ export annotation_input="tests/tmp/annotation.input"
   # 1KB over the 1MB size limit of annotations
   stub du \
     "-k \* : echo 1025$'\t'\$2" \
+    "-k \* : echo 1025$'\t'\$2"
+  
+  stub buildkite-agent \
+    "artifact download \* \* : echo Downloaded artifact \$3 to \$4"
+
+  stub docker \
+    "--log-level error run --rm --volume \* --volume \* --env \* --env \* --env \* \* ruby /src/bin/annotate /junits : cat tests/2-tests-1-failure.output && exit 64"
+
+  run "$PWD/hooks/command"
+
+  assert_failure
+
+  assert_output --partial "Failures too large to annotate"
+
+  unstub mktemp
+  unstub du
+  unstub buildkite-agent
+  unstub docker
+}
+
+@test "error bubbles up when ruby code fails with anything but 64" {
+  export BUILDKITE_PLUGIN_JUNIT_ANNOTATE_ARTIFACTS="junits/*.xml"
+  export BUILDKITE_PLUGIN_JUNIT_ANNOTATE_FAIL_BUILD_ON_ERROR=false
+
+  stub mktemp \
+    "-d \* : mkdir -p '$artifacts_tmp'; echo '$artifacts_tmp'" \
+    "-d \* : mkdir -p '$annotation_tmp'; echo '$annotation_tmp'"
+
+  stub buildkite-agent \
+    "artifact download \* \* : echo Downloaded artifact \$3 to \$4"
+
+  stub docker \
+    "--log-level error run --rm --volume \* --volume \* --env \* --env \* --env \* \* ruby /src/bin/annotate /junits : cat tests/2-tests-1-failure.output && exit 147"
+
+  run "$PWD/hooks/command"
+
+  assert_failure 147
+
+  assert_output --partial "Error when processing JUnit tests"
+
+  unstub mktemp
+  unstub buildkite-agent
+  unstub docker
+}
+
+@test "error bubbles up when agent download fails" {
+  export BUILDKITE_PLUGIN_JUNIT_ANNOTATE_ARTIFACTS="junits/*.xml"
+  export BUILDKITE_PLUGIN_JUNIT_ANNOTATE_FAIL_BUILD_ON_ERROR=false
+
+  stub mktemp \
+    "-d \* : mkdir -p '$artifacts_tmp'; echo '$artifacts_tmp'" \
+    "-d \* : mkdir -p '$annotation_tmp'; echo '$annotation_tmp'"
+
+  stub buildkite-agent \
+    "artifact download \* \* : exit 1"
+
+  run "$PWD/hooks/command"
+
+  assert_failure 2
+
+  assert_output --partial "Could not download artifacts"
+
+  unstub mktemp
+  unstub buildkite-agent
+}
+
+@test "customize error when agent download fails" {
+  export BUILDKITE_PLUGIN_JUNIT_ANNOTATE_ARTIFACTS="junits/*.xml"
